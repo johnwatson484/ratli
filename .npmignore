@@ -1,0 +1,47 @@
+# Configuration files
+tsconfig.json
+tsconfig.cjs.json
+vitest.config.js
+eslint.config.js
+sonar-project.properties
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.travis.yml
+.circleci/
+
+# SonarQube
+.scannerwork/
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test files
+test/
+tests/
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+coverage/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
