@@ -5,6 +5,14 @@ import { Server } from '@hapi/hapi'
 const module = await import('../dist/cjs/index.js')
 const plugin = module.default || module
 
+declare module '@hapi/hapi' {
+  interface PluginProperties {
+    rati: {
+      reset: () => Promise<void>
+    }
+  }
+}
+
 describe('rati (CommonJS)', () => {
   let server: Server
 
