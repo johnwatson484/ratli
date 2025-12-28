@@ -1,6 +1,6 @@
 {
   "name": "ratli",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Hapi.js plugin for rate limiting.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,8 +27,12 @@
     "hapi.js",
     "plugin",
     "hapi plugin",
+    "rate limiting",
+    "rate limiter",
+    "throttling",
     "api",
-    "versioning"
+    "ip",
+    "api key"
   ],
   "author": "John Watson",
   "license": "MIT",
