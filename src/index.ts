@@ -1,3 +1,4 @@
+import { isIPv4, isIPv6 } from 'node:net'
 import { Server, type Plugin, type ReqRefDefaults, type Request } from '@hapi/hapi'
 import { applyToDefaults } from '@hapi/hoek'
 import Joi from 'joi'
@@ -296,36 +297,7 @@ class MemoryStorage {
 }
 
 const isValidIp = (ip: string): boolean => {
-  const ipv4Pattern = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
-
-  if (ipv4Pattern.test(ip)) {
-    const parts = ip.split('.').map(Number)
-    return parts.every(part => part >= 0 && part <= 255)
-  }
-
-  const ipv6Segment = '[0-9a-fA-F]{1,4}'
-  const hasDoubleColon = ip.includes('::')
-  const hasValidCharacters = /^[0-9a-fA-F:]+$/.test(ip)
-
-  if (!hasValidCharacters) {
-    return false
-  }
-
-  if (hasDoubleColon) {
-    const parts = ip.split('::')
-    if (parts.length > 2) {
-      return false
-    }
-    const segments = ip.split(':').filter(s => s.length > 0)
-    return segments.every(s => new RegExp(`^${ipv6Segment}$`).test(s)) && segments.length <= 8
-  }
-
-  const segments = ip.split(':')
-  if (segments.length !== 8) {
-    return false
-  }
-
-  return segments.every(s => new RegExp(`^${ipv6Segment}$`).test(s))
+  return isIPv4(ip) || isIPv6(ip)
 }
 
 const sanitizeApiKey = (key: string): string | null => {
