@@ -1,6 +1,6 @@
 {
   "name": "ratli",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A Hapi.js plugin for rate limiting.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -51,7 +51,7 @@
     "vitest": "4.0.16"
   },
   "dependencies": {
-    "@hapi/hoek": "11.0.7",
-    "joi": "18.0.2"
+    "@hapi/hoek": "^11.0.7",
+    "joi": "^18.0.2"
   }
 }
