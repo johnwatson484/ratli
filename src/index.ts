@@ -368,7 +368,7 @@ const plugin: Plugin<RatliPluginOptions> = {
       }
 
       const forwardedFor = request.headers['x-forwarded-for']
-      if (!forwardedFor) {
+      if (typeof forwardedFor !== 'string' || !forwardedFor) {
         return request.info.remoteAddress
       }
 
